@@ -1,96 +1,96 @@
-# Loja Social IPCA – Sistema Integrado de Apoio Social
+# Loja Social IPCA – Integrated Social Support System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Kotlin](https://img.shields.io/badge/Kotlin-Jetpack%20Compose-7F52FF?logo=kotlin)](app)
 [![React](https://img.shields.io/badge/React-Vite%20%2B%20TS-61DAFB?logo=react)](web)
 [![Firebase](https://img.shields.io/badge/Firebase-Firestore%20%7C%20Auth%20%7C%20Functions-FFCA28?logo=firebase)](functions)
 
-Sistema digital completo para modernizar e otimizar a gestão da Loja Social do IPCA, substituindo processos manuais por uma solução centralizada que promove transparência e entreajuda na comunidade académica.
+A complete digital system to modernize and streamline the management of IPCA's Social Store, replacing manual processes with a centralized solution that promotes transparency and mutual support within the academic community.
 
-O projeto é um **monorepo** com três componentes:
+The project is a **monorepo** with three components:
 
-| Pasta | Descrição | Stack |
+| Folder | Description | Stack |
 |---|---|---|
-| [`app/`](app) | Aplicação móvel Android — usada por beneficiários e colaboradores do SAS | Kotlin, Jetpack Compose, MVVM + Clean Architecture, Hilt |
-| [`web/`](web) | Site público de apresentação e transparência (campanhas, doações, estado de stock) | React, Vite, TypeScript, Tailwind, shadcn/ui |
-| [`functions/`](functions) | Cloud Functions — envio de emails e notificações push | Node.js, Firebase Functions v2, Nodemailer |
+| [`app/`](app) | Android mobile app — used by beneficiaries and SAS staff | Kotlin, Jetpack Compose, MVVM + Clean Architecture, Hilt |
+| [`web/`](web) | Public website for outreach and transparency (campaigns, donations, stock status) | React, Vite, TypeScript, Tailwind, shadcn/ui |
+| [`functions/`](functions) | Cloud Functions — email and push notification delivery | Node.js, Firebase Functions v2, Nodemailer |
 
 ---
 
-## Funcionalidades Principais
+## Main Features
 
-### Gestão de Beneficiários
-* **Registo Digital:** Fluxo sequencial para recolha de dados pessoais, académicos e submissão de documentos obrigatórios (RGPD).
-* **Candidaturas (Requerimentos):** Submissão e monitorização do estado do pedido de apoio (Submetido, Em Análise, Em Falta, Aprovado ou Rejeitado).
-* **Perfil Autónomo:** Autonomia para o beneficiário consultar o histórico de apoios e editar dados pessoais.
+### Beneficiary Management
+* **Digital Registration:** Sequential flow for collecting personal and academic data and submitting required documents (GDPR).
+* **Applications (Requests):** Submission and tracking of support request status (Submitted, Under Review, Missing Info, Approved, or Rejected).
+* **Self-Service Profile:** Beneficiaries can view their support history and edit their personal data.
 
-### Gestão de Inventário (Bens)
-* **Controlo de Stock:** Diferenciação entre catálogo de produtos (tipologia) e stock físico (quantidades e lotes).
-* **Categorização:** Organização por tipos de bens: Alimentares, Higiene Pessoal e Limpeza.
-* **Gestão de Validades:** Monitorização de datas de validade com sistema de notificações automáticas para evitar desperdícios.
+### Inventory Management (Goods)
+* **Stock Control:** Distinction between the product catalog (typology) and physical stock (quantities and batches).
+* **Categorization:** Organized by goods type: Food, Personal Hygiene, and Cleaning.
+* **Expiry Management:** Expiry date monitoring with automatic notifications to prevent waste.
 
-### Gestão de Entregas
-* **Agendamento Flexível:** Calendarização de levantamentos mensais com opção de repetição automática.
-* **Notificações:** Alertas *push* e e-mails para relembrar os beneficiários das datas de entrega.
-* **Validação Operacional:** Registo imediato do estado da entrega (Entregue/Não Entregue) por parte dos colaboradores do SAS.
+### Delivery Management
+* **Flexible Scheduling:** Monthly pickup scheduling with optional automatic recurrence.
+* **Notifications:** Push alerts and emails to remind beneficiaries of delivery dates.
+* **Operational Validation:** Immediate delivery status logging (Delivered/Not Delivered) by SAS staff.
 
-### Campanhas e Comunidade
-* **Monitorização de Campanhas:** Gestão do ciclo de vida de iniciativas de recolha internas e externas.
-* **Site Público:** Página web com informação sobre campanhas, doações e transparência de stock.
+### Campaigns and Community
+* **Campaign Tracking:** Lifecycle management of internal and external collection initiatives.
+* **Public Website:** Web page with information on campaigns, donations, and stock transparency.
 
 ---
 
-## Stack Tecnológica
+## Tech Stack
 
-**App Android**
-* **Linguagem:** Kotlin
+**Android App**
+* **Language:** Kotlin
 * **UI:** Jetpack Compose + Compose Navigation
-* **Arquitetura:** MVVM (Model-View-ViewModel) + Clean Architecture
-* **Injeção de Dependências:** Hilt
+* **Architecture:** MVVM (Model-View-ViewModel) + Clean Architecture
+* **Dependency Injection:** Hilt
 
 **Web**
 * **Framework:** React + Vite + TypeScript
 * **UI:** Tailwind CSS + shadcn/ui (Radix primitives)
 
-**Backend (Firebase, partilhado por App e Web)**
-* **Firestore:** Armazenamento de dados NoSQL
-* **Authentication:** Autenticação de utilizadores
-* **Storage:** Armazenamento de imagens (produtos/campanhas)
-* **Cloud Functions:** Envio de e-mails (Nodemailer) e notificações push (FCM)
+**Backend (Firebase, shared by App and Web)**
+* **Firestore:** NoSQL data storage
+* **Authentication:** User authentication
+* **Storage:** Image storage (products/campaigns)
+* **Cloud Functions:** Email delivery (Nodemailer) and push notifications (FCM)
 
 ---
 
-## Organização do Código
+## Code Organization
 
-O projeto (app Android) segue os princípios de **Clean Architecture**, dividindo-se em:
+The Android app follows **Clean Architecture** principles, split into:
 
-1. **Domain:** Lógica de negócio pura (Use Cases e Modelos de Domínio).
-2. **Data:** Repositórios e Data Sources (integração com Firebase).
-3. **Presentation:** Camada de UI organizada por ecrãs (`Screens`), componentes reutilizáveis (`Components`) e gestão de estado (`ViewModels`).
+1. **Domain:** Pure business logic (Use Cases and Domain Models).
+2. **Data:** Repositories and Data Sources (Firebase integration).
+3. **Presentation:** UI layer organized by screens (`Screens`), reusable components (`Components`), and state management (`ViewModels`).
 
 ---
 
-## Como Configurar e Executar
+## Setup and Running
 
-### 1. Clonar o Repositório
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Gusta11M/loja-social-ipca.git
 cd loja-social-ipca
 ```
 
-### 2. App Android (`app/`)
+### 2. Android App (`app/`)
 
-1. Cria um projeto na [Consola do Firebase](https://console.firebase.google.com/).
-2. Adiciona uma app Android com o package `pt.ipca.lojasocial`.
-3. Faz o download do `google-services.json` e coloca-o em `app/`.
-4. Abre o projeto no **Android Studio**, sincroniza o Gradle e corre num emulador/dispositivo com API 24+.
+1. Create a project in the [Firebase Console](https://console.firebase.google.com/).
+2. Add an Android app with the package `pt.ipca.lojasocial`.
+3. Download `google-services.json` and place it in `app/`.
+4. Open the project in **Android Studio**, sync Gradle, and run on an emulator/device with API 24+.
 
 ### 3. Web (`web/`)
 
 ```bash
 cd web
-cp .env.example .env   # preenche com as credenciais do teu projeto Firebase
+cp .env.example .env   # fill in with your Firebase project credentials
 npm install
 npm run dev
 ```
@@ -99,29 +99,29 @@ npm run dev
 
 ```bash
 cd functions
-cp .env.example .env   # credenciais SMTP (Gmail App Password), nunca comitar
+cp .env.example .env   # SMTP credentials (Gmail App Password), never commit
 npm install
 firebase deploy --only functions
 ```
 
-> **Nota de segurança:** todas as credenciais (`google-services.json`, `.env`, chaves de assinatura) estão excluídas via `.gitignore` e nunca devem ser comitadas. Usa sempre os ficheiros `.env.example` como referência.
+> **Security note:** all credentials (`google-services.json`, `.env`, signing keys) are excluded via `.gitignore` and must never be committed. Always use the `.env.example` files as reference.
 
 ---
 
-## Licença
+## License
 
-Distribuído sob licença MIT. Consulta [LICENSE](LICENSE) para mais detalhes.
+Distributed under the MIT license. See [LICENSE](LICENSE) for details.
 
 ---
 
-## Equipa (Projeto Aplicado & Programação Dispositivos Móveis)
+## Team (Applied Project & Mobile Device Programming)
 * 27962 Gustavo Daniel Loureiro Marques
 * 29852 Gustavo da Costa Pereira
 * 23010 Hugo Tiago Mendes Cruz
 * 27977 Igor Miguel Torres da Costa
 * 23016 Dani Carvalho da Cruz
-* **Orientação:** Prof.ª Patrícia Isabel Sousa Trindade Silva Leite & Prof.º Lourenço Miguel Araújo Gomes
+* **Supervision:** Prof. Patrícia Isabel Sousa Trindade Silva Leite & Prof. Lourenço Miguel Araújo Gomes
 
 ---
-**Escola Superior de Tecnologia – IPCA**
-Licenciatura em Engenharia de Sistemas Informáticos
+**School of Technology – IPCA**
+Bachelor's Degree in Computer Systems Engineering
